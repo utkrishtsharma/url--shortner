@@ -21,8 +21,8 @@
 
     <input type="text" id="shortUrl" value="{{ short_url }}" readonly>
     <div>
-    <button style="background-color:#6A5ACD" onclick="copyToClipboard()">Copy Shortened URL  <img src="{{ url_for('static', filename='square.png') }}" width="15" height="15"></button>
-    <button style="background-color:#6A5ACD" onclick="window.location.href='{{ url_for('index') }}'"> <- Back </button>
+    <button class="button"  style="background-color:#6A5ACD" onclick="copyToClipboard()">Copy Shortened URL  <img src="{{ url_for('static', filename='square.png') }}" width="15" height="15"></button>
+    <button class="button" style="background-color:#6A5ACD" onclick="window.location.href='{{ url_for('index') }}'"> <- Back </button>
 
     </div>
     </div>
