@@ -67,4 +67,4 @@ def redirect_to_url(slug):
 
 # Run the app if this script is executed directly
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='172.31.6.44', port=5000, debug=True)
