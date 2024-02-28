@@ -1,6 +1,6 @@
 # URL Shortener Web Application
 
-live : http://127.0.0.1:5000/
+live : http://18.118.2.4:5000/
 
 ##Introduction
 
