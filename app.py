@@ -16,40 +16,38 @@ def generate_slug():
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(6))
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])  # Allow both GET and POST requests
 def index():
-    form = URLForm()
+    form = URLForm(request.form)  # Pass request.form to the form
+    if request.method == 'POST' and form.validate():
+        original_url = form.url.data
+        
+        # Get custom_slug from form data if present, otherwise set it to None
+        custom_slug = form.custom_slug.data
+
+        # Check if a custom slug is provided and is unique
+        if custom_slug:
+            if custom_slug in url_mapping:
+                return render_template('index.html', form=form, error="Custom slug is not unique, please choose another.")
+            else:
+                slug = custom_slug
+        else:
+            # Generate a random slug
+            slug = generate_slug()
+            while slug in url_mapping:
+                slug = generate_slug()
+
+        url_mapping[slug] = original_url
+
+        return redirect(url_for('success', slug=slug))  # Redirect to success route with slug parameter
     # Fetch all slugs in the url_mapping
     slugs = url_mapping.keys()
     return render_template('index.html', form=form, slugs=slugs,  url_mapping=url_mapping)
 
-@app.route('/success')
-def success():
-    original_url = request.args.get('original_url')
+@app.route('/success/<slug>')
+def success(slug):
+    original_url = url_mapping.get(slug)
     return render_template('success.html', original_url=original_url)
-
-@app.route('/shorten', methods=['POST'])
-def shorten_url():
-    original_url = request.form['url']
-    
-    # Get custom_slug from form data if present, otherwise set it to None
-    custom_slug = request.form.get('custom_slug')
-
-    # Check if a custom slug is provided and is unique
-    if custom_slug:
-        if custom_slug in url_mapping:
-            return render_template('index.html', form=URLForm(), error="Custom slug is not unique, please choose another.")
-        else:
-            slug = custom_slug
-    else:
-        # Generate a random slug
-        slug = generate_slug()
-        while slug in url_mapping:
-            slug = generate_slug()
-
-    url_mapping[slug] = original_url
-
-    return render_template('success.html', short_url=request.url_root + slug ,original_url=original_url)
 
 @app.route('/<slug>')
 def redirect_to_url(slug):
