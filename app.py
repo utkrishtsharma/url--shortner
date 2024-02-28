@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 from wtforms import Form, StringField, validators
 import random
 import string
-from urllib.parse import quote
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -40,7 +39,7 @@ def index():
 
         url_mapping[slug] = original_url
 
-        return redirect(url_for('success', slug=quote(slug)))  # Redirect to success route with slug parameter
+        return redirect(url_for('success', slug=slug))  # Redirect to success route with slug parameter
     # Fetch all slugs in the url_mapping
     slugs = url_mapping.keys()
     return render_template('index.html', form=form, slugs=slugs,  url_mapping=url_mapping)
