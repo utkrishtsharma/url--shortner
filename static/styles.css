@@ -27,24 +27,26 @@ input[type="text"] {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
-    margin-left: 20%;
-    margin-left: 0%;
-
     border: 2px solid black; /* light grey border */
     border-radius: 10px;
     box-sizing: border-box;
 }
-.success-message {
-            color: green; /* Set text color to SlateBlue */
-        }
 
 .button {
     padding: 15px 25px;
     background-color: #6A5ACD; /* SlateBlue button background */
     color: #fff; /* White button text color */
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: #483D8B; /* DarkSlateBlue button background on hover */
+}
+
+.success-message {
+    color: green; /* Set text color to green */
 }
 
 p {
