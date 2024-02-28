@@ -14,7 +14,7 @@ Clone the repository from GitHub:
 git clone <repository-url>
 
 Navigate to the project directory:
-cd url-shortener
+cd url--shortner
 
 Install the required dependencies using pip:
 pip install -r requirements.txt
