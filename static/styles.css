@@ -1,0 +1,61 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* light grey background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding around the content */
+    background-color: #f0f0f0; /* Grey background color */
+}
+
+
+h1 {
+    color: #333; /* dark grey text color */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-left: 0%;
+
+    border: 2px solid black; /* light grey border */
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.success-message {
+            color: green; /* Set text color to SlateBlue */
+        }
+
+.button {
+    padding: 15px 25px;
+    background-color: #6A5ACD; /* SlateBlue button background */
+    color: #fff; /* White button text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #6A5ACD; /* blue link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* underline on hover */
+}

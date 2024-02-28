@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener
+            <img src="{{ url_for('static', filename='square.png') }}" alt="Square Image" width="25" height="24">
+        </h1>
+        <form action="{{ url_for('shorten_url') }}" method="post" onsubmit="return validateURL()">
+            <label for="url">Enter the URL to Shorten</label><br><br>
+            <label for="url">URL</label><br>
+            <!-- Input field for URL -->
+            <input type="text" id="url" name="url" ><br>
+            <!-- Input field for custom slug -->
+            <label for="custom_slug">Custom Slug (optional)</label><br>
+            <input type="text" id="custom_slug" name="custom_slug"><br>
+            
+            <button style="background-color:#6A5ACD"; type="submit">Shorten</button>
+            <p class="success-message">Maximus unique slugs : 56,800,235,584</p>
+        </form>
+    </div>
+    <div class="container">
+    <h3>Your Shortened URLs</h3>
+    <ul>
+        {% for slug in slugs %}
+            <li><a href="{{ url_mapping[slug] }}">{{ slug }}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    <script>
+        {% if error %}
+            alert("{{ error }}");
+        {% endif %}
+    </script>
+</body>
+</html>

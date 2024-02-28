@@ -1,0 +1,30 @@
+<!-- templates/success.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortened</title>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+    <h1>URL Shortener    <img src="{{ url_for('static', filename='square.png') }}" alt="Square Image" width="25" height="24">
+    <h2>URL Shortened Successfully!</h2>
+    <label for="url">URL</label><br>
+    
+    <input type="text" id="originalUrl" value="{{ original_url }}" readonly>
+    <p class="success-message">Success! Here's your short URL</p>
+
+    <input type="text" id="shortUrl" value="{{ short_url }}" readonly>
+    <div>
+    <button style="background-color:#6A5ACD" onclick="copyToClipboard()">Copy Shortened URL  <img src="{{ url_for('static', filename='square.png') }}" width="15" height="15"></button>
+    <button style="background-color:#6A5ACD" onclick="window.location.href='{{ url_for('index') }}'"> <- Back </button>
+
+    </div>
+    </div>
+</body>
+</html>
