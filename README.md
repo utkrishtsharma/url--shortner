@@ -8,7 +8,6 @@ Welcome to the documentation for the URL shortener web application. This documen
 
 
 # Installation  
-To install the URL shortener web application locally, follow these steps:  
 
 Clone the repository from GitHub:
 git clone <repository-url>  
@@ -19,7 +18,7 @@ cd url--shortner
 Install the required dependencies using pip:
 pip install -r requirements.txt  
 
-3. Usage  
+# Usage  
 To run the URL shortener web application locally, execute the following command:
 
 python app.py  
