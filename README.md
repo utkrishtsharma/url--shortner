@@ -1,6 +1,6 @@
 # URL Shortener Web Application
 
-live : http://18.118.2.4:5000/
+live AWS Instance  : http://3.144.88.118:5000/
 
 ##Introduction
 
